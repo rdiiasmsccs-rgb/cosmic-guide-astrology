@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#1a1a2e">
+  <meta name="description" content="Personal Astrology App - Daily horoscopes, birth charts, and cosmic insights">
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="icon-192.png">
+  <title>Cosmic Guide - Your Personal Astrology</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="app">
+    <!-- Navigation -->
+    <nav class="bottom-nav">
+      <button class="nav-btn active" data-page="home">
+        <span class="icon">🏠</span>
+        <span>Home</span>
+      </button>
+      <button class="nav-btn" data-page="chart">
+        <span class="icon">⭐</span>
+        <span>Chart</span>
+      </button>
+      <button class="nav-btn" data-page="planets">
+        <span class="icon">🪐</span>
+        <span>Planets</span>
+      </button>
+      <button class="nav-btn" data-page="moon">
+        <span class="icon">🌙</span>
+        <span>Moon</span>
+      </button>
+    </nav>
+
+    <!-- Home Page -->
+    <div class="page active" id="home-page">
+      <header class="header">
+        <h1>Cosmic Guide</h1>
+        <p class="subtitle">Your Personal Astrology Companion</p>
+      </header>
+
+      <div class="container">
+        <div class="card">
+          <h2>Daily Horoscope</h2>
+          <div class="zodiac-selector">
+            <label for="zodiac-select">Your Sign:</label>
+            <select id="zodiac-select" class="select-input">
+              <option value="aries">♈ Aries</option>
+              <option value="taurus">♉ Taurus</option>
+              <option value="gemini">♊ Gemini</option>
+              <option value="cancer">♋ Cancer</option>
+              <option value="leo">♌ Leo</option>
+              <option value="virgo">♍ Virgo</option>
+              <option value="libra">♎ Libra</option>
+              <option value="scorpio">♏ Scorpio</option>
+              <option value="sagittarius">♐ Sagittarius</option>
+              <option value="capricorn">♑ Capricorn</option>
+              <option value="aquarius">♒ Aquarius</option>
+              <option value="pisces">♓ Pisces</option>
+            </select>
+          </div>
+          <div id="horoscope-content" class="horoscope-content"></div>
+        </div>
+
+        <div class="card">
+          <h2>Personalized Prediction</h2>
+          <div id="prediction-content" class="prediction-content"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Birth Chart Page -->
+    <div class="page" id="chart-page">
+      <header class="header">
+        <h1>Birth Chart</h1>
+        <p class="subtitle">Discover Your Cosmic Blueprint</p>
+      </header>
+
+      <div class="container">
+        <div class="card">
+          <h2>Enter Birth Details</h2>
+          <form id="birth-form" class="birth-form">
+            <div class="form-group">
+              <label>Date of Birth</label>
+              <input type="date" id="birth-date" required class="input-field">
+            </div>
+            <div class="form-group">
+              <label>Time of Birth</label>
+              <input type="time" id="birth-time" required class="input-field">
+            </div>
+            <div class="form-group">
+              <label>Birth Location</label>
+              <input type="text" id="birth-location" placeholder="City, Country" required class="input-field">
+            </div>
+            <button type="submit" class="btn-primary">Generate Chart</button>
+          </form>
+        </div>
+
+        <div id="chart-result" class="card" style="display:none;">
+          <h2>Your Natal Chart</h2>
+          <div id="chart-details" class="chart-details"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Planets Page -->
+    <div class="page" id="planets-page">
+      <header class="header">
+        <h1>Planetary Positions</h1>
+        <p class="subtitle">Current Cosmic Alignments</p>
+      </header>
+
+      <div class="container">
+        <div class="card">
+          <h2>Today's Transits</h2>
+          <div id="planets-content" class="planets-content"></div>
+        </div>
+
+        <div class="card">
+          <h2>Personal Transit Impact</h2>
+          <div id="transit-impact" class="transit-impact"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Moon Page -->
+    <div class="page" id="moon-page">
+      <header class="header">
+        <h1>Moon Phases</h1>
+        <p class="subtitle">Lunar Cycle & Energy</p>
+      </header>
+
+      <div class="container">
+        <div class="card">
+          <h2>Current Moon Phase</h2>
+          <div id="moon-phase" class="moon-phase"></div>
+        </div>
+
+        <div class="card">
+          <h2>Lunar Calendar</h2>
+          <div id="moon-calendar" class="moon-calendar"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="astro-calculations.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
