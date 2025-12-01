@@ -1,0 +1,247 @@
+:root {
+  --primary: #1a1a2e;
+  --secondary: #16213e;
+  --accent: #e94560;
+  --accent-light: #ff6b9d;
+  --text: #f1f1f1;
+  --text-dim: #a0a0a0;
+  --card-bg: #0f3460;
+  --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  background: var(--primary);
+  color: var(--text);
+  line-height: 1.6;
+  padding-bottom: 80px;
+  overflow-x: hidden;
+}
+
+#app {
+  min-height: 100vh;
+}
+
+.header {
+  background: var(--gradient);
+  padding: 2rem 1rem;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+.header h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.subtitle {
+  color: rgba(255,255,255,0.9);
+  font-size: 0.95rem;
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem;
+}
+
+.card {
+  background: var(--card-bg);
+  border-radius: 16px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+.card h2 {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  color: var(--accent-light);
+}
+
+.zodiac-selector {
+  margin-bottom: 1.5rem;
+}
+
+.zodiac-selector label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--text-dim);
+  font-size: 0.9rem;
+}
+
+.select-input {
+  width: 100%;
+  padding: 0.75rem;
+  background: var(--secondary);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 8px;
+  color: var(--text);
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.horoscope-content, .prediction-content {
+  padding: 1rem;
+  background: rgba(255,255,255,0.05);
+  border-radius: 8px;
+  line-height: 1.8;
+}
+
+.birth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 0.5rem;
+  color: var(--text-dim);
+  font-size: 0.9rem;
+}
+
+.input-field {
+  padding: 0.75rem;
+  background: var(--secondary);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 8px;
+  color: var(--text);
+  font-size: 1rem;
+}
+
+.btn-primary {
+  padding: 1rem;
+  background: var(--gradient);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.btn-primary:active {
+  transform: scale(0.98);
+}
+
+.chart-details, .planets-content, .transit-impact {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.planet-item, .chart-item {
+  padding: 1rem;
+  background: rgba(255,255,255,0.05);
+  border-radius: 8px;
+  border-left: 3px solid var(--accent);
+}
+
+.planet-item h3, .chart-item h3 {
+  color: var(--accent-light);
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.moon-phase {
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.moon-icon {
+  font-size: 5rem;
+  margin: 1rem 0;
+}
+
+.moon-info {
+  margin-top: 1rem;
+}
+
+.moon-info h3 {
+  color: var(--accent-light);
+  margin-bottom: 0.5rem;
+}
+
+.moon-calendar {
+  display: grid;
+  gap: 1rem;
+}
+
+.moon-day {
+  padding: 1rem;
+  background: rgba(255,255,255,0.05);
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--secondary);
+  display: flex;
+  justify-content: space-around;
+  padding: 0.75rem 0;
+  box-shadow: 0 -4px 20px rgba(0,0,0,0.3);
+  z-index: 1000;
+}
+
+.nav-btn {
+  background: none;
+  border: none;
+  color: var(--text-dim);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  transition: color 0.3s;
+  font-size: 0.75rem;
+}
+
+.nav-btn.active {
+  color: var(--accent-light);
+}
+
+.nav-btn .icon {
+  font-size: 1.5rem;
+}
+
+.page {
+  display: none;
+}
+
+.page.active {
+  display: block;
+  animation: fadeIn 0.3s;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 480px) {
+  .header h1 { font-size: 1.5rem; }
+  .card { padding: 1rem; }
+  .container { padding: 1rem 0.75rem; }
+}
